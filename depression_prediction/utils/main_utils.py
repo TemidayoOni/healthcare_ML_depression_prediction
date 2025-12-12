@@ -6,8 +6,8 @@ import dill
 import yaml
 from pandas import DataFrame
 
-from electric_vehicle.exception import CustomException
-from electric_vehicle.logger import logging
+from depression_prediction.exception import CustomException
+from depression_prediction.logger import logging
 
 
 def read_yaml_file(file_path: str) -> dict:
