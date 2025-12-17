@@ -1,3 +1,4 @@
-from depression_prediction.logger import logging
+from depression_prediction.pipeline.training_pipeline import TrainingPipeline
 
-logging.info("This is a test log")
+object = TrainingPipeline()
+object.run_pipeline()

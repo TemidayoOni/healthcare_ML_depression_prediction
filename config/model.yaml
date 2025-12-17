@@ -1,0 +1,70 @@
+# =========================
+# Global Grid Search Config
+# =========================
+
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: 5
+    scoring: f1_macro
+    n_jobs: -1
+    verbose: 2
+
+
+# =========================
+# Model Candidates
+# =========================
+
+model_selection:
+
+  module_0:
+    class: LogisticRegression
+    module: sklearn.linear_model
+    params:
+      max_iter: 3000
+      solver: lbfgs
+      multi_class: multinomial
+      class_weight: balanced
+    search_param_grid:
+      C:
+        - 0.01
+        - 0.1
+        - 1.0
+        - 10.0
+
+
+  module_1:
+    class: RandomForestClassifier
+    module: sklearn.ensemble
+    params:
+      random_state: 42
+      class_weight: balanced
+    search_param_grid:
+      n_estimators:
+        - 100
+        - 300
+      max_depth:
+        - null
+        - 5
+        - 10
+        - 20
+      min_samples_split:
+        - 2
+        - 5
+        - 10
+      min_samples_leaf:
+        - 1
+        - 2
+        - 4
+      max_features:
+        - sqrt
+        - log2
+
+
+  module_2:
+    class: DummyClassifier
+    module: sklearn.dummy
+    params:
+      strategy: most_frequent
+    search_param_grid: {}

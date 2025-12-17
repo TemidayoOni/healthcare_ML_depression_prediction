@@ -1,0 +1,92 @@
+# =========================
+# Raw Dataset Schema
+# =========================
+
+columns:
+  age: int
+  gender: category
+  depression_phq9_score: int
+  sleep_quality_index: int
+  brain_fog_level: int
+  physical_pain_score: int
+  stress_level: int
+  fatigue_severity_scale_score: int
+  pem_duration_hours: float
+  hours_of_sleep_per_night: float
+  work_status: category
+  social_activity_level: category
+  exercise_frequency: category
+  meditation_or_mindfulness: category
+  pem_present: category
+  diagnosis: category
+
+
+# =========================
+# Column Groups
+# =========================
+
+numerical_columns:
+  - age
+  - depression_phq9_score
+  - sleep_quality_index
+  - brain_fog_level
+  - physical_pain_score
+  - stress_level
+  - fatigue_severity_scale_score
+  - pem_duration_hours
+  - hours_of_sleep_per_night
+
+
+categorical_columns:
+  - gender
+  - work_status
+  - social_activity_level
+  - exercise_frequency
+  - meditation_or_mindfulness
+  - pem_present
+  
+
+
+# =========================
+# Columns to Drop
+# =========================
+
+drop_columns: []
+
+
+# =========================
+# Data Transformation Config
+# =========================
+
+# Numerical features to scale
+num_features:
+  - age
+  - depression_phq9_score
+  - sleep_quality_index
+  - brain_fog_level
+  - physical_pain_score
+  - stress_level
+  - fatigue_severity_scale_score
+  - pem_duration_hours
+  - hours_of_sleep_per_night
+
+
+# Ordinal features (ordered categories)
+or_columns:
+  - social_activity_level
+  - exercise_frequency
+  - stress_level
+
+
+# One-Hot encoded features
+oh_columns:
+  - gender
+  - work_status
+  - meditation_or_mindfulness
+  - pem_present
+
+
+# Power / distribution transforms (optional)
+transform_columns:
+  - depression_phq9_score
+  - fatigue_severity_scale_score

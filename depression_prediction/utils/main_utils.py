@@ -68,17 +68,13 @@ def save_numpy_array_data(file_path: str, array: np.array):
 
 
 
-def load_numpy_array_data(file_path: str) -> np.array:
+def load_numpy_array_data(file_obj):
     """
     load numpy array data from file
     file_path: str location of file to load
     return: np.array data loaded
     """
-    try:
-        with open(file_path, 'rb') as file_obj:
-            return np.load(file_obj)
-    except Exception as e:
-        raise CustomException(e, sys) from e
+    return np.load(file_obj, allow_pickle=True)    
 
 
 
